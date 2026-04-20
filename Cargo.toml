@@ -1,0 +1,17 @@
+[package]
+name = "condvar"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+libc = "0.2.185"
+
+[build-dependencies]
+cc = "1.2.60"
+
+[dev-dependencies]
+criterion = "0.8.2"
+
+[[bench]]
+name = "compare"
+harness = false
