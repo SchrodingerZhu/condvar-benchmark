@@ -96,6 +96,8 @@ static int llvm_new_futex_requeue_private(volatile uint32_t *addr,
 static inline void llvm_new_sleep_briefly() {
 #if defined(__x86_64__) || defined(__i386__) || defined(_M_X64) || defined(_M_IX86)
   __builtin_ia32_pause();
+#elif defined(__aarch64__) || defined(__aarch64)
+  __builtin_arm_isb(0xf);
 #else
   std::atomic_signal_fence(std::memory_order_seq_cst);
 #endif

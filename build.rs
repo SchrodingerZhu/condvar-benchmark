@@ -10,6 +10,7 @@ fn main() {
         .flag_if_supported("-std=c11")
         .flag_if_supported("-pthread")
         .flag_if_supported("-O3")
+        .flag_if_supported("-march=native") 
         .compile("condvar_musl");
 
     cc::Build::new()
@@ -19,6 +20,7 @@ fn main() {
         .file("llvm-new.cpp")
         .flag_if_supported("-std=c++17")
         .flag_if_supported("-pthread")
+        .flag_if_supported("-march=native")
         .flag_if_supported("-O3")
         .compile("condvar_llvm");
 }

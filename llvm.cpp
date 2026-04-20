@@ -88,7 +88,7 @@ int llvm_old_cond_destroy(llvm_old_condvar *cond) {
 
 int llvm_old_cond_wait(llvm_old_condvar *cond, llvm_mutex *mutex) {
   llvm_old_waiter waiter = {};
-  waiter.futex_word.store(LLVM_OLD_WAITING, std::memory_order_relaxed);
+  waiter.futex_word.store(LLVM_OLD_WAITING);
 
   llvm_mutex_lock(&cond->qmtx);
   llvm_old_waiter *old_tail = cond->tail;
